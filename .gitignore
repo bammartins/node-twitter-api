@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignore config directory
-./src/config/*
+src/config/
 
 # Runtime data
 pids
