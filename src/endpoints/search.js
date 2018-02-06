@@ -1,7 +1,27 @@
 let twitterAccess  = require('../config/config.js');
-let query          = '#SKG'
-let hashSearch = twitterAccess.get('search/tweets', { q: `${query}`, count: 100 }, function(err, data, response) {
-   return data
-}); 
+class Twitter {
+    constructor(hashSearch){
+        this.hash = hashSearch;
+    }
+    
+    getTwitterObject(){
+        let query =  this.hash;
+        let arr = [];
+        let i = 0;
+        let result =
+        twitterAccess.get('search/tweets', { q: `${query}`, count: 20}, function(err, data, response) {
+            console.log(data.statuses.length);
+            while(i <= data.statuses.length){
+                arr.push(data.statuses[i])
+                i++;
+            }
+            return data;
+        });
+        return arr;
+    }
 
-module.exports = hashSearch;
+}
+
+const twitterReturn = new Twitter('Marvel');
+
+module.exports = twitterReturn.getTwitterObject();
