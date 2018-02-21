@@ -11,6 +11,6 @@ routes(app);
 // To use react app
 // app.use(express["static"]('static'));
 
-const server = app.listen(3333, () => {
+const server = app.listen(3000, () => {
     console.log(`server running on port: `, server.address().port);
 })

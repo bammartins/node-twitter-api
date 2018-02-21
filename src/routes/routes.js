@@ -1,6 +1,7 @@
 let Faker = require('faker');
 let twitterAccess  = require('../config/config.js');
 let hashSearch = require('../endpoints/search.js');
+let tStream = require('../endpoints/stream.js');
 let appRouter = (app) =>{
     app.get('/api', (request, response) => {
         let obj = {
@@ -12,6 +13,10 @@ let appRouter = (app) =>{
 
     app.get('/twitter', (request, response) => {
        response.status(200).send(hashSearch);
+    });
+
+    app.get('/twitter/stream', (request, response) =>{
+        response.status(200).send(tStream);
     });
 } 
 

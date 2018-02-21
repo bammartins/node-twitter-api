@@ -10,7 +10,6 @@ class Twitter {
         let i = 0;
         let result =
         twitterAccess.get('search/tweets', { q: `${query}`, count: 20}, function(err, data, response) {
-            console.log(data.statuses.length);
             while(i <= data.statuses.length){
                 arr.push(data.statuses[i])
                 i++;
